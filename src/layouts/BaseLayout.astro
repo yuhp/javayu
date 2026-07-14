@@ -49,8 +49,9 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
       <link rel="alternate" hreflang={language} href={new URL(alternatePaths[language], site.url).href} />
     ))}
     {alternatePaths.en && <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths.en, site.url).href} />}
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon-16.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon-32.ico" />
+    <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon-48.ico" />
     <title>{pageTitle}</title>
   </head>
   <body>

@@ -1,6 +1,6 @@
 ---
-title: "Stop Maintaining Model Lists by Hand: opencode-models-discovery"
-description: An OpenCode plugin that discovers and merges models from OpenAI-compatible providers at startup.
+title: "Stop Maintaining OpenCode Model Lists by Hand"
+description: "opencode-models-discovery: An OpenCode plugin that discovers and merges models from OpenAI-compatible providers at startup."
 publishedAt: 2026-07-12
 lang: en
 tags:

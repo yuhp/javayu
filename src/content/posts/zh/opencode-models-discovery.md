@@ -1,6 +1,6 @@
 ---
-title: "不再手写模型列表：opencode-models-discovery"
-description: 一个在 OpenCode 启动时自动发现并合并 OpenAI 兼容 provider 模型列表的插件。
+title: "告别手工维护opencode模型列表"
+description: "opencode-models-discovery: 一个在 OpenCode 启动时自动发现并合并 OpenAI 兼容 provider 模型列表的插件。"
 publishedAt: 2026-07-12
 lang: zh
 tags:
