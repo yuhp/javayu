@@ -1,0 +1,64 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Giscus from '../../../components/Giscus.astro';
+import { alternateLanguage, copy, dateForLocale } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+
+  return posts.map((post) => ({
+    params: { lang: post.data.lang, slug: post.id.split('/').slice(1).join('/') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const lang = post.data.lang;
+const text = copy[lang];
+const { Content } = await render(post);
+const alternate = alternateLanguage(lang);
+const translation = post.data.translationSlug
+  ? (await getCollection('posts', ({ data }) => data.lang === alternate && data.translationSlug === post.data.translationSlug && !data.draft))[0]
+  : undefined;
+const translatedSlug = translation?.id.split('/').slice(1).join('/');
+const alternatePaths = translatedSlug
+  ? {
+      [lang]: Astro.url.pathname,
+      [alternate]: `/${alternate}/posts/${translatedSlug}/`,
+    }
+  : { [lang]: Astro.url.pathname };
+---
+
+<BaseLayout
+  lang={lang}
+  title={post.data.title}
+  description={post.data.description}
+  active="archive"
+  alternatePaths={alternatePaths}
+>
+  <article class="article">
+    <header class="article-header">
+      <p class="eyebrow">{text.writtenIn}</p>
+      <h1>{post.data.title}</h1>
+      <p class="article-description">{post.data.description}</p>
+      <div class="article-meta">
+        <time datetime={post.data.publishedAt.toISOString()}>{dateForLocale(post.data.publishedAt, lang)}</time>
+        {post.data.updatedAt && <time datetime={post.data.updatedAt.toISOString()}>{text.updatedIn} {dateForLocale(post.data.updatedAt, lang)}</time>}
+      </div>
+      {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' / ')}</p>}
+      {translatedSlug && (
+        <p class="translation-links">
+          <span>{text.translations}:</span>
+          <a href={`/${alternate}/posts/${translatedSlug}/`} lang={alternate} hreflang={alternate}>
+            {copy[alternate].languageName}
+          </a>
+        </p>
+      )}
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+  <Giscus lang={lang} />
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostList from '../../../components/PostList.astro';
+import { copy, isLanguage, languages } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang: requestedLang } = Astro.params;
+
+if (!isLanguage(requestedLang)) {
+  return Astro.redirect('/zh/posts/', 302);
+}
+
+const lang = requestedLang;
+const text = copy[lang];
+const posts = (await getCollection('posts', ({ data }) => data.lang === lang && !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout lang={lang} title={text.archive} active="archive">
+  <section class="archive-header">
+    <p class="eyebrow">{lang === 'zh' ? '归档' : 'Archive'}</p>
+    <h1>{text.archive}</h1>
+  </section>
+  <section class="writing-section" aria-label={text.archive}>
+    <PostList lang={lang} posts={posts} />
+  </section>
+</BaseLayout>

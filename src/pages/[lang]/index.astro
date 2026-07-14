@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { copy, isLanguage, languages, site } from '../../lib/site';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang: requestedLang } = Astro.params;
+
+if (!isLanguage(requestedLang)) {
+  return Astro.redirect('/zh/', 302);
+}
+
+const lang = requestedLang;
+const text = copy[lang];
+const posts = (await getCollection('posts', ({ data }) => data.lang === lang && !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout lang={lang} active="home">
+  <section class="page-intro">
+    <p class="eyebrow">{lang === 'zh' ? '个人博客 / 个人笔记' : 'Personal blog / Field notes'}</p>
+    <h1>{site.name[lang]}<span class="signal">.</span></h1>
+    <p>{text.intro}</p>
+  </section>
+
+  <section class="writing-section" aria-labelledby="latest-writing">
+    <div class="section-heading">
+      <h2 id="latest-writing">{text.latest}</h2>
+      <span class="eyebrow">{posts.length.toString().padStart(2, '0')}</span>
+    </div>
+    <PostList lang={lang} posts={posts.slice(0, 5)} />
+  </section>
+</BaseLayout>
+
+<style>
+  .signal { color: var(--signal); }
+</style>

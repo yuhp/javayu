@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { copy, isLanguage, languages, site } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang: requestedLang } = Astro.params;
+
+if (!isLanguage(requestedLang)) {
+  return Astro.redirect('/zh/about/', 302);
+}
+
+const lang = requestedLang;
+const text = copy[lang];
+---
+
+<BaseLayout lang={lang} title={text.about} active="about">
+  <section class="about">
+    <p class="eyebrow">{site.name[lang]}</p>
+    <h1>{text.aboutTitle}</h1>
+    <p>{text.aboutText}</p>
+    {lang === 'zh' ? (
+      <p>这个空间用于沉淀可复用的经验，也为尚未想清楚的问题保留一处公开的起点。</p>
+    ) : (
+      <p>This is a place to preserve reusable lessons and give still-unresolved questions a public starting point.</p>
+    )}
+    <p>
+      {lang === 'zh' ? 'GitHub：' : 'GitHub: '}
+      <a href="https://github.com/yuhp/" rel="me external">github.com/yuhp</a>
+    </p>
+  </section>
+</BaseLayout>

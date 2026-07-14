@@ -1,0 +1,20 @@
+---
+import { copy, site, type Language } from '../lib/site';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer class="site-footer">
+  <p>{copy[lang].footer}</p>
+  <p>
+    &copy; {new Date().getFullYear()} {site.name[lang]}
+    <span aria-hidden="true"> · </span>
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license external">
+      CC BY-NC-ND 4.0
+    </a>
+  </p>
+</footer>

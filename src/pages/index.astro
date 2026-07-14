@@ -1,17 +1,21 @@
----
-
----
-
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>JavaYu</title>
+    <script is:inline>
+      (() => {
+        const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+        const preferredLanguage = languages
+          .map((language) => language?.toLowerCase().split('-')[0])
+          .find((language) => language === 'zh' || language === 'en');
+        const destination = preferredLanguage === 'zh' ? '/zh/' : '/en/';
+
+        window.location.replace(destination);
+      })();
+    </script>
+  </head>
+  <body></body>
 </html>

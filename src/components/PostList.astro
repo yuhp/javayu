@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { copy, dateForLocale, type Language } from '../lib/site';
+
+interface Props {
+  lang: Language;
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { lang, posts } = Astro.props;
+const text = copy[lang];
+---
+
+{posts.length ? (
+  <ol class="post-list">
+    {posts.map((post) => {
+      const slug = post.id.split('/').at(-1);
+      return (
+        <li>
+          <article class="post-list__item">
+            <div class="post-list__meta">
+              <time datetime={post.data.publishedAt.toISOString()}>
+                {dateForLocale(post.data.publishedAt, lang)}
+              </time>
+              {post.data.tags.length > 0 && <span>{post.data.tags.join(' / ')}</span>}
+            </div>
+            <h2><a href={`/${lang}/posts/${slug}/`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+            <a class="text-link" href={`/${lang}/posts/${slug}/`}>{text.readArticle} <span aria-hidden="true">&rarr;</span></a>
+          </article>
+        </li>
+      );
+    })}
+  </ol>
+) : <p class="empty-state">{text.noPosts}</p>}

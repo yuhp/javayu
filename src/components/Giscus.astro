@@ -1,0 +1,72 @@
+---
+interface Props {
+  lang: 'zh' | 'en';
+}
+
+const { lang } = Astro.props;
+const repo = import.meta.env.PUBLIC_GISCUS_REPO;
+const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
+const category = import.meta.env.PUBLIC_GISCUS_CATEGORY;
+const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID;
+const ready = repo && repoId && category && categoryId;
+---
+
+<section
+  class="comments"
+  aria-labelledby="comments-heading"
+  data-giscus-repo={repo}
+  data-giscus-repo-id={repoId}
+  data-giscus-category={category}
+  data-giscus-category-id={categoryId}
+  data-giscus-lang={lang === 'zh' ? 'zh-CN' : 'en'}
+>
+  <h2 id="comments-heading">{lang === 'zh' ? '讨论' : 'Discussion'}</h2>
+  {ready ? (
+    <script is:inline>
+      (() => {
+        const container = document.currentScript?.parentElement;
+
+        if (!(container instanceof HTMLElement)) return;
+
+        const theme = () => document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+        const configureFrame = (nextTheme) => {
+          const frame = document.querySelector('iframe.giscus-frame');
+
+          frame?.contentWindow?.postMessage(
+            { giscus: { setConfig: { theme: nextTheme } } },
+            'https://giscus.app',
+          );
+        };
+        const script = document.createElement('script');
+
+        script.src = 'https://giscus.app/client.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.dataset.repo = container.dataset.giscusRepo ?? '';
+        script.dataset.repoId = container.dataset.giscusRepoId ?? '';
+        script.dataset.category = container.dataset.giscusCategory ?? '';
+        script.dataset.categoryId = container.dataset.giscusCategoryId ?? '';
+        script.dataset.mapping = 'pathname';
+        script.dataset.strict = '0';
+        script.dataset.reactionsEnabled = '1';
+        script.dataset.emitMetadata = '0';
+        script.dataset.inputPosition = 'bottom';
+        script.dataset.theme = theme();
+        script.dataset.lang = container.dataset.giscusLang ?? 'en';
+        script.addEventListener('load', () => configureFrame(theme()));
+        container.appendChild(script);
+
+        window.addEventListener('themechange', (event) => {
+          const nextTheme = event instanceof CustomEvent && event.detail?.theme === 'dark' ? 'dark' : 'light';
+          configureFrame(nextTheme);
+        });
+      })();
+    </script>
+  ) : (
+    <p class="comments__notice">
+      {lang === 'zh'
+        ? '评论将在 Giscus 配置完成后启用。'
+        : 'Comments will be available once Giscus is configured.'}
+    </p>
+  )}
+</section>

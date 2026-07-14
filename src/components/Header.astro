@@ -1,0 +1,80 @@
+---
+import { alternateLanguage, copy, site, type Language } from '../lib/site';
+
+interface Props {
+  lang: Language;
+  active?: 'home' | 'archive' | 'about';
+  languageUrl?: string;
+}
+
+const { lang, active, languageUrl = `/${alternateLanguage(lang)}/` } = Astro.props;
+const text = copy[lang];
+const alternate = alternateLanguage(lang);
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="wordmark" href={`/${lang}/`} aria-label={`${site.name[lang]} home`}>{site.name[lang]}<span>.</span></a>
+    <nav aria-label={lang === 'zh' ? '主导航' : 'Primary navigation'}>
+      <a href={`/${lang}/`} aria-current={active === 'home' ? 'page' : undefined}>{text.home}</a>
+      <a href={`/${lang}/posts/`} aria-current={active === 'archive' ? 'page' : undefined}>{text.archive}</a>
+      <a href={`/${lang}/about/`} aria-current={active === 'about' ? 'page' : undefined}>{text.about}</a>
+    </nav>
+    <div class="header-controls">
+      <button class="theme-switch" type="button" data-theme-switch>
+        {lang === 'zh' ? '深色模式' : 'Dark mode'}
+      </button>
+      <a class="language-switch" href={languageUrl} lang={alternate} hreflang={alternate}>
+        {text.switchLanguage}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector('[data-theme-switch]');
+
+    if (!button) return;
+
+    const isChinese = document.documentElement.lang === 'zh';
+    const labels = isChinese
+      ? { light: '浅色模式', dark: '深色模式', switchToLight: '切换为浅色主题', switchToDark: '切换为深色主题' }
+      : { light: 'Light mode', dark: 'Dark mode', switchToLight: 'Switch to light theme', switchToDark: 'Switch to dark theme' };
+    const updateButton = (theme) => {
+      const nextTheme = theme === 'dark' ? 'light' : 'dark';
+      button.textContent = nextTheme === 'dark' ? labels.dark : labels.light;
+      button.setAttribute('aria-pressed', String(theme === 'dark'));
+      button.setAttribute('aria-label', nextTheme === 'dark' ? labels.switchToDark : labels.switchToLight);
+      button.title = button.getAttribute('aria-label');
+    };
+    const readStoredTheme = () => {
+      try {
+        const storedTheme = window.localStorage.getItem('javayu-theme');
+        return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : null;
+      } catch {
+        return null;
+      }
+    };
+    const setTheme = (theme, persist) => {
+      document.documentElement.dataset.theme = theme;
+      if (persist) {
+        try {
+          window.localStorage.setItem('javayu-theme', theme);
+        } catch {
+          // The theme still changes when browser storage is unavailable.
+        }
+      }
+      updateButton(theme);
+      window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+    };
+
+    updateButton(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    button.addEventListener('click', () => {
+      setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      if (!readStoredTheme()) setTheme(event.matches ? 'dark' : 'light', false);
+    });
+  })();
+</script>

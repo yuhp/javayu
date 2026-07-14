@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# javayu.com
+
+A bilingual personal blog built with Astro. Chinese and English are published as independent, static pages under `/zh/` and `/en/`.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The root URL redirects to `/zh/`. Write new posts in `src/content/posts/zh/` or `src/content/posts/en/`. Each post requires the frontmatter defined in `src/content.config.ts`.
 
-## 🚀 Project Structure
+Use the same `translationSlug` for a Chinese and English counterpart. The article page will link to its available translation automatically.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Giscus comments
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Make the comments repository public and enable GitHub Discussions.
+2. Install the [Giscus GitHub App](https://github.com/apps/giscus) for that repository.
+3. Create a Discussions category, then configure Giscus at [giscus.app](https://giscus.app/).
+4. In Cloudflare Pages, add the four environment variables listed in `.env.example`.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Comments remain safely disabled until all four values exist. The configuration uses `pathname`, so each language version gets a distinct discussion thread.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Cloudflare Pages deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+Connect this Git repository in Cloudflare Pages and use these build settings:
 
-## 🧞 Commands
+| Setting | Value |
+| --- | --- |
+| Framework preset | Astro |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | `22` |
 
-All commands are run from the root of the project, from a terminal:
+Add the `www.javayu.com` and `javayu.com` custom domains in the Pages dashboard, then choose one canonical domain and redirect the other to it. The Astro site URL is configured as `https://www.javayu.com`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Content license
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Unless otherwise noted, the blog content is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
