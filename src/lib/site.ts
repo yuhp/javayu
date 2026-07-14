@@ -7,7 +7,7 @@ export const site = {
     zh: '爪哇鱼',
     en: 'JavaYu',
   },
-  url: 'https://www.javayu.com',
+  url: 'https://javayu.com',
   author: 'JavaYu',
   description: {
     zh: '记录技术、思考与持续学习。',

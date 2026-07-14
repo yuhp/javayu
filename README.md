@@ -34,7 +34,7 @@ Connect this Git repository in Cloudflare Pages and use these build settings:
 | Build output directory | `dist` |
 | Node.js version | `22` |
 
-Add the `www.javayu.com` and `javayu.com` custom domains in the Pages dashboard, then choose one canonical domain and redirect the other to it. The Astro site URL is configured as `https://www.javayu.com`.
+Add the `javayu.com` custom domain in the Pages dashboard. The Astro site URL is configured as `https://javayu.com`.
 
 ## Content license
 
