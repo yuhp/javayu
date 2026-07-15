@@ -1,4 +1,4 @@
-# javayu.com
+# yuhp.dev
 
 A bilingual personal blog built with Astro. Chinese and English are published as independent, static pages under `/zh/` and `/en/`.
 
@@ -34,7 +34,7 @@ Connect this Git repository in Cloudflare Pages and use these build settings:
 | Build output directory | `dist` |
 | Node.js version | `22` |
 
-Add the `javayu.com` custom domain in the Pages dashboard. The Astro site URL is configured as `https://javayu.com`.
+Add the `yuhp.dev` custom domain in the Pages dashboard. The Astro site URL is configured as `https://yuhp.dev`.
 
 ## Content license
 

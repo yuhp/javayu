@@ -1,8 +1,8 @@
-# DESIGN.md - javayu.com
+# DESIGN.md - yuhp.dev
 
 ## 1. Objective
 
-javayu.com is a bilingual personal notebook for technical ideas, working notes, and durable explanations. It should feel calm, precise, and human: visitors can immediately find the newest writing, switch languages without losing context, and read for a long time without visual fatigue.
+yuhp.dev is a bilingual personal notebook for technical ideas, working notes, and durable explanations. It should feel calm, precise, and human: visitors can immediately find the newest writing, switch languages without losing context, and read for a long time without visual fatigue.
 
 ## 2. Product Context
 

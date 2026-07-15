@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://javayu.com',
+  site: 'https://yuhp.dev',
   output: 'static',
   integrations: [sitemap()],
 });
