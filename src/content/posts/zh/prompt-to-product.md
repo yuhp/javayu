@@ -67,7 +67,7 @@ LLM 擅长理解上下文、生成文本并判断下一步意图，但它本身�
 
 标准循环可以概括为：
 
-![Agentic Loop：客户端组装上下文，LLM 决策行动，工具结果回填上下文，循环直至交付。](/pic/p2p_zh.png)
+![Agentic Loop：客户端组装上下文，LLM 决策行动，工具结果回填上下文，循环直至交付。](/images/posts/prompt-to-product/agentic-loop-zh.png)
 
 1. 用户提出目标。
 2. 客户端组装上下文并发送给 LLM。

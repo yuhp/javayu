@@ -67,7 +67,7 @@ An executable agent product comes from their collaboration, not from attributing
 
 A standard loop can be summarized as follows:
 
-![Agentic Loop: the client assembles context, the LLM decides on actions, tool results return to the context, and the loop continues until delivery.](/pic/p2p_en.png)
+![Agentic Loop: the client assembles context, the LLM decides on actions, tool results return to the context, and the loop continues until delivery.](/images/posts/prompt-to-product/agentic-loop-en.png)
 
 1. A user states an objective.
 2. The client assembles context and sends it to the LLM.
