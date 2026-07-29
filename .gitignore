@@ -26,3 +26,6 @@ pnpm-debug.log*
 #mimocode setting folder
 .mimocode/
 mimocode.json
+
+# working article drafts
+/draft/

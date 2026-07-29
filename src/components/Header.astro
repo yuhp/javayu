@@ -10,6 +10,7 @@ interface Props {
 const { lang, active, languageUrl = `/${alternateLanguage(lang)}/` } = Astro.props;
 const text = copy[lang];
 const alternate = alternateLanguage(lang);
+const courseUrl = `https://llm.hclife.edu.pl/?lang=${lang}`;
 ---
 
 <header class="site-header">
@@ -18,6 +19,13 @@ const alternate = alternateLanguage(lang);
     <nav aria-label={lang === 'zh' ? '主导航' : 'Primary navigation'}>
       <a href={`/${lang}/`} aria-current={active === 'home' ? 'page' : undefined}>{text.home}</a>
       <a href={`/${lang}/posts/`} aria-current={active === 'archive' ? 'page' : undefined}>{text.archive}</a>
+      <a href={courseUrl}>{text.courses}</a>
+      <details class="project-menu">
+        <summary>{text.projects}</summary>
+        <ul class="project-menu__list">
+          <li><a href="https://github.com/yuhp/opencode-models-discovery">{text.opencodeModelsDiscovery}</a></li>
+        </ul>
+      </details>
       <a href={`/${lang}/about/`} aria-current={active === 'about' ? 'page' : undefined}>{text.about}</a>
     </nav>
     <div class="header-controls">

@@ -106,8 +106,17 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
   .wordmark { font-family: var(--serif); font-size: 27px; font-weight: 600; letter-spacing: -0.045em; text-decoration: none; }
   .wordmark span { color: var(--signal); }
   nav { display: flex; align-items: center; gap: 20px; font-size: 14px; }
-  nav a, .header-controls a { color: var(--muted); text-decoration: none; }
+  nav a, nav summary, .header-controls a { color: var(--muted); text-decoration: none; }
   nav a[aria-current='page'] { color: var(--ink); font-weight: 600; }
+  .project-menu { position: relative; }
+  .project-menu summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; list-style: none; }
+  .project-menu summary::-webkit-details-marker { display: none; }
+  .project-menu summary::after { content: '▾'; margin-left: 4px; font-size: 10px; }
+  .project-menu[open] summary { color: var(--link); }
+  .project-menu__list { position: absolute; z-index: 1; top: calc(100% - 2px); left: -12px; min-width: 230px; border: 1px solid var(--rule); margin: 0; padding: 6px 0; background: var(--surface); list-style: none; }
+  .project-menu__list a { display: block; padding: 8px 12px; color: var(--ink); white-space: nowrap; }
+  .project-menu__list a:hover { background: var(--paper); color: var(--link); }
+  .project-menu summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
   .header-controls { display: flex; justify-self: end; gap: 8px; }
   .language-switch, .theme-switch { display: inline-flex; align-items: center; min-height: 44px; border: 1px solid var(--rule); padding: 3px 9px; background: transparent; color: var(--muted); font-family: var(--mono); font-size: 12px; line-height: 1; }
   .theme-switch { cursor: pointer; }
@@ -158,7 +167,7 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
   @media (max-width: 600px) {
     main, .site-header__inner, .site-footer { width: min(100% - 32px, 1080px); }
     .site-header__inner { grid-template-columns: 1fr auto; min-height: 66px; gap: 12px; }
-    nav { grid-column: 1 / -1; grid-row: 2; padding-bottom: 12px; gap: 16px; }
+    nav { grid-column: 1 / -1; grid-row: 2; flex-wrap: wrap; padding-bottom: 12px; gap: 0 16px; }
     .header-controls { grid-column: 2; grid-row: 1; }
     .page-intro, .archive-header, .article, .about { padding-top: 54px; }
     .writing-section { margin-top: 64px; }

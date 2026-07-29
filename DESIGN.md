@@ -41,12 +41,14 @@ yuhp.dev is a bilingual personal notebook for technical ideas, working notes, an
 - **Card / container:** No raised cards. Entries are separated by hairline rules and generous vertical spacing.
 - **Iconography:** No decorative icons; typographic markers carry hierarchy.
 - **Metadata:** Dates, reading time, and tags use a compact monospace style.
+- **Navigation:** Primary destinations remain text links. External learning content has the same visual weight as writing; project links live in a native, single-level disclosure menu with a hairline border rather than a card-like popover.
 
 ## 4. Accessibility
 
 - **Text contrast:** Body text meets 4.5:1 minimum; interactive states meet 3:1 minimum.
 - **Motion:** No essential animation; transitions disable under reduced motion.
 - **Focus indicators:** A 2px cobalt outline with 3px offset. The theme control exposes its current pressed state and the target theme in its accessible name.
+- **Navigation menus:** Use native disclosure controls so projects remain usable by keyboard and touch without client-side state; the summary control receives the same visible focus treatment as links.
 - **Alt text policy:** Decorative rules have no alternative text; informational images describe the information they add.
 - **Language:** Each page declares its content language and every language switch control is named in its target language.
 
@@ -80,6 +82,13 @@ yuhp.dev is a bilingual personal notebook for technical ideas, working notes, an
 2. **Content truth.** Use visual structure only when it reflects a real distinction in the writing.
 3. **Bilingual parity.** Chinese and English pages receive equivalent structure and navigation.
 4. **Low maintenance.** Prefer static Astro primitives and content collections over runtime client state.
+
+### Navigation decision trace
+
+| Decision | Reason | Alternative considered | Trade-off |
+| --- | --- | --- | --- |
+| Use a native `details` menu for projects | A small, growing project list needs keyboard and touch support without JavaScript or a separate navigation pattern | Hover-only menu; a dedicated projects page | It is less visually custom than a fully scripted menu, but more robust and lower maintenance |
+| Keep “公开课 / Courses” as a text link | The course is a primary destination, not a promotional CTA; equal weight preserves the editorial character | A filled button or a banner link | It is less visually prominent, but does not compete with the writing |
 
 ## 9. Workflow
 
