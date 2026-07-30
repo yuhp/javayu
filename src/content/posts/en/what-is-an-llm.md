@@ -59,6 +59,8 @@ current context
 → predict again
 ```
 
+![Token-by-token generation: the model assigns probabilities to candidate tokens from the current context, selects one, and adds it back to the context.](/images/posts/what-is-an-llm/token-generation-en-core.png)
+
 During inference, the trained weights normally remain fixed. Adding a current policy, retrieval result, or tool response changes the basis for this response, but does not permanently teach the model that information. Sampling settings such as temperature affect how randomly the system selects among candidate tokens; they do not add knowledge or make a claim true.
 
 Token-by-token generation is not meaningless random word association. A model combines patterns of grammar, meaning, style, code structure, and task context, so it can produce coherent and often useful work. But it is still generating what most plausibly follows in the current context. It does not inherently retrieve one uniquely current, verified answer.
@@ -75,11 +77,15 @@ Token-by-token generation is not meaningless random word association. A model co
 
 Dreams can contain rich knowledge, language, and imagery without reliably matching the reality of this place and moment. A trained LLM is similar: it contains many learned patterns, but has no senses continuously observing the world, an inherent task identity, or a position in which it must bear the consequences of its answer.
 
+![A dreaming brain: training data is compressed into distributed parameters; one context triggers one computation, but the model has no continuously running self.](/images/posts/what-is-an-llm/dreaming-brain-en-core.png)
+
 ### 1. A Knowledge Snapshot Frozen at the End of Training
 
 After training, an LLM is a set of fixed parameters. New context changes the basis for one response, but normally does not change those parameters. In that sense, the model is closer to a knowledge snapshot frozen at the end of training than to a subject continuously updating with the world.
 
 Retrieval results, tool responses, and conversation history can let it answer from new material, while fine-tuning can produce a new version of the model. The first is an external system adding context; the second trains or adjusts parameters again. Neither means that the model naturally accumulates lived experience in one conversation.
+
+![Context grounding: a model can answer only from the task information, evidence, and constraints supplied in its current context; missing information does not appear on its own.](/images/posts/what-is-an-llm/grounding-context-en-core.png)
 
 ### 2. Learned Patterns Are Not Lived Experience
 
