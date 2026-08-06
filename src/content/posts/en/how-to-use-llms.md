@@ -25,6 +25,8 @@ Everything sent to a model for one request can be called context. It includes mo
 
 The goal is not to put every available fact into the window. Context should make four things clear for the current step: what to accomplish, what to rely on, what not to do, and when to stop or ask for more information.
 
+![The context workbench: task background, working perspective, behavioural rules, relevant memory, and current evidence form the environment a model can rely on for this step.](/images/posts/how-to-use-llms/context-workbench-en.png)
+
 ### 1. Persona: Set a Working Perspective, Not a Real Identity or Authority
 
 > Think of a persona as a temporary **working identity (identity / persona)** for the “dreaming brain.” It lets the model enact a self—an ego or soul in service of the task—so it knows whose perspective and goal should guide its words. That self is only a role established by the current context, not evidence that the model has a real soul, experience, or inner subject.
@@ -86,6 +88,8 @@ Context can bring in information already at hand, but the world changes. A curre
 Here the model can express an intention to use a tool: search for material, read a file, query a database, run a test, or request a controlled action from a service. **The model proposes the call; the client or application validates, executes, and returns the result to context.**
 
 That boundary matters. Tool calling is not a model reaching out to operate the world directly; it is an interface managed by the system.
+
+![Tools give an LLM passive senses and language-directed hands: they translate documents, databases, and live state into text or structured results; the model expresses language intent for tools to take controlled actions on services, files, and calendars.](/images/posts/how-to-use-llms/senses-and-hands-en.png)
 
 The interactive course's [“How Do LLMs Call Tools?”](https://llm.hclife.edu.pl/model-boundaries?lang=en#tool-call-protocol) demonstration traces the full path: the model proposes call intent, the client validates permissions and parameters, then results return to context.
 
