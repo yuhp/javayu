@@ -77,6 +77,8 @@ Token-by-token generation is not meaningless random word association. A model co
 
 Dreams can contain rich knowledge, language, and imagery without reliably matching the reality of this place and moment. A trained LLM is similar: it contains many learned patterns, but has no senses continuously observing the world, an inherent task identity, or a position in which it must bear the consequences of its answer.
 
+The interactive course's [“What Is the State of a Trained LLM?”](https://llm.hclife.edu.pl/model-boundaries?lang=en#dream-brain) demonstration shows the static weights, conversational context, and missing real-world information behind this “dreaming brain” metaphor.
+
 ![A dreaming brain: training data is compressed into distributed parameters; one context triggers one computation, but the model has no continuously running self.](/images/posts/what-is-an-llm/dreaming-brain-en-core.png)
 
 ### 1. A Knowledge Snapshot Frozen at the End of Training
@@ -155,5 +157,3 @@ An LLM is most useful as a powerful layer for language and pattern work—not as
 To involve that dreaming brain reliably in a real task, an application must supply what the model does not possess: background for the current task, relevant history and memory, a clear identity and objective, and rules for its behaviour. When new information is needed, it must also be able to obtain evidence through controlled tools.
 
 The next article, [*How to Use LLMs to Their Strengths: Give Them a Real Environment*](/en/posts/how-to-use-llms/), separates these elements of a “real environment”: context, persona, rules, and tools—what each solves, and why none should be mistaken for a magical prompt.
-
-You can also explore the interactive course: [Large Language Models: Generation and Capability Boundaries](https://llm.hclife.edu.pl/model-boundaries?lang=en).
