@@ -1,7 +1,7 @@
 ---
 title: "如何扬长避短地利用 LLM：为模型补上现实环境"
 description: "用任务背景、历史记忆、人设、行为规范与受控工具，把大语言模型的语言能力接入真实工作。"
-publishedAt: 2026-08-06
+publishedAt: 2026-08-06T11:19:17+08:00
 lang: zh
 tags:
   - LLM

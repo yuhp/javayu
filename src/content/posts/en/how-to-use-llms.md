@@ -1,7 +1,7 @@
 ---
 title: "How to Use LLMs to Their Strengths: Give Them a Real Environment"
 description: "Use task context, history, persona, behavioural rules, and controlled tools to connect an LLM's language ability to real work."
-publishedAt: 2026-08-06
+publishedAt: 2026-08-06T11:19:17+08:00
 lang: en
 tags:
   - LLM

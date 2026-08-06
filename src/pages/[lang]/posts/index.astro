@@ -17,7 +17,7 @@ if (!isLanguage(requestedLang)) {
 const lang = requestedLang;
 const text = copy[lang];
 const posts = (await getCollection('posts', ({ data }) => data.lang === lang && !data.draft))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf() || a.id.localeCompare(b.id));
 ---
 
 <BaseLayout lang={lang} title={text.archive} active="archive">

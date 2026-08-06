@@ -87,3 +87,27 @@ const courseUrl = `https://llm.hclife.edu.pl/?lang=${lang}`;
     });
   })();
 </script>
+
+<script is:inline>
+  (() => {
+    const projectMenus = document.querySelectorAll('.project-menu');
+
+    const closeMenu = (menu) => menu.removeAttribute('open');
+
+    document.addEventListener('pointerdown', (event) => {
+      projectMenus.forEach((menu) => {
+        if (menu.open && !menu.contains(event.target)) closeMenu(menu);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+
+      projectMenus.forEach((menu) => {
+        if (!menu.open) return;
+        closeMenu(menu);
+        menu.querySelector('summary')?.focus();
+      });
+    });
+  })();
+</script>
