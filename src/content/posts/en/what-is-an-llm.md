@@ -154,6 +154,6 @@ An LLM is most useful as a powerful layer for language and pattern work—not as
 
 To involve that dreaming brain reliably in a real task, an application must supply what the model does not possess: background for the current task, relevant history and memory, a clear identity and objective, and rules for its behaviour. When new information is needed, it must also be able to obtain evidence through controlled tools.
 
-The next article, *How to Use LLMs to Their Strengths*, separates these elements of a “real environment”: context, persona, rules, and tools—what each solves, and why none should be mistaken for a magical prompt.
+The next article, [*How to Use LLMs to Their Strengths: Give Them a Real Environment*](/en/posts/how-to-use-llms/), separates these elements of a “real environment”: context, persona, rules, and tools—what each solves, and why none should be mistaken for a magical prompt.
 
 You can also explore the interactive course: [Large Language Models: Generation and Capability Boundaries](https://llm.hclife.edu.pl/model-boundaries?lang=en).
