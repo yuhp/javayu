@@ -104,6 +104,8 @@ This does not mean the model has directly called `lookup_order`. Like ordinary p
 
 The same output protocol can represent “request these skill instructions” or “ask the user a question”; both request supplemental content. “Task complete” is instead a task-state signal the client derives after reading the output; like EOS, it is evidence for whether the loop should continue rather than one of the two task-advancing output types. Structured output turns a next-step intention expressed in language into a candidate instruction that a system can recognise, record, and route. It allows initiative to enter a program flow without mistaking a language model for a subject that directly operates the system.
 
+> **Execution authority does not transfer with language intent.** Structured output only marks model-generated content as a candidate instruction; the client and runtime rules still decide whether to read information, call a tool, or execute an action. Refusals, errors, and new results also become context for the next computation.
+
 ## The Client Connects Output Into a Runtime Loop
 
 A model's initiative is rarely completed in one step, because every new piece of evidence changes the next probability calculation. The client connects these outputs into a loop:
@@ -114,13 +116,9 @@ A model's initiative is rarely completed in one step, because every new piece of
 4. The execution layer returns a result, error, or state change; the client sends these, along with the current task state, back into model context.
 5. In the new context, the model computes again: it may continue, ask a question, or request a capability. The client then decides whether to end the loop from EOS, task state, and runtime rules.
 
+![Controlled runtime loop: current context enters LLM computation; the model either generates content directly or requests more content from a user, skill library, or tool. The client checks schema, permission, budget, and human confirmation before execution, then returns new evidence, errors, refusals, or state changes to context.](/images/posts/how-llms-become-proactive/controlled-loop-en.png)
+
 In a refund enquiry, when current context does not provide order status, the model can generate a structured candidate order-lookup call. After the client returns “delivered and still within the refund window,” the model has new evidence. It can explain refund eligibility directly, or, if the customer explicitly requests a refund, generate a candidate call for another controlled action. Each round looks like a proactive decision, but is in fact the next output produced by the model function from current context.
-
-## Execution Authority and Safety Boundaries Remain With the Client
-
-Capability descriptions and structured output let a model propose candidate actions; they do not grant it real authority. The client, service account, and underlying systems must independently decide whether a candidate request may become a real action: whether the tool is permitted for this task, arguments match the schema, the user identity has authority, cost is within a limit, and human confirmation is required.
-
-This boundary belongs after model output and before actual execution. Even if a model generates a well-formed refund request, the client can reject it because user confirmation is missing, the amount exceeds a limit, or the current identity lacks authority. The refusal should return as a result, so the model can explain, ask, or stop. Structured output makes intent **verifiable, auditable, and rejectable**; it does not transfer execution authority to the model.
 
 ## Stopping Conditions Keep a Loop From Wandering
 
