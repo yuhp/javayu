@@ -79,17 +79,17 @@ Every memory should have a source, a scope, and a way to update it. “The user 
 
 ## Giving the Model “Senses” and “Hands” Through Tools
 
-> Tools let the system supply the dreaming brain with “senses” beyond listening through text or structured results, and with “hands” that language instructions may direct when authorized. Those senses remain passive inputs returned by an external system, not the model's own continuous perception.
+> Tools let the system turn states of the external world into textual or structured observations, and provide authorized “hands” that language intent may direct. When a tool result enters the model's context, it remains a passive input returned by an external system. But when the model requests a search, query, or state read and the client executes it and returns the result, the system is performing controlled active information gathering. That is not the model's own continuous perception of the world.
 >
-> Within a controlled tool loop, the LLM resembles a **sleepwalker**: it moves from a “thinker” that reasons in language to a participant that can propose a next action. It neither perceives nor operates the world directly; a controlled system must receive, validate, and execute every step.
+> Within a controlled tool loop, the LLM resembles a **sleepwalker**: it moves from a “thinker” that reasons in language to a participant that can propose a next observation or action. It does not directly and continuously perceive or operate the world, but the system can actively obtain external information at its request. A controlled system must still receive, validate, and execute every step.
 
 Context can bring in information already at hand, but the world changes. A current order status, internal document, test result, or calendar opening should not be answered only from training knowledge or an old memory.
 
-Here the model can express an intention to use a tool: search for material, read a file, query a database, run a test, or request a controlled action from a service. **The model proposes the call; the client or application validates, executes, and returns the result to context.**
+Here the model can express an intention to use a tool: search for material, read a file, query a database, run a test, or request a controlled action from a service. Search, query, and read operations mean the system actively samples new external information; modifications, submissions, and sends mean it performs controlled actions. **The model proposes a candidate call; the client or application validates, executes, and returns the result to context.**
 
-That boundary matters. Tool calling is not a model reaching out to operate the world directly; it is an interface managed by the system.
+That boundary matters. Tool calling is neither a model reaching out to operate the world directly nor a model possessing continuously operating senses. It is a controlled interface: the model proposes a candidate intent, the system performs an observation or action, and the result returns to context.
 
-![Tools give an LLM passive senses and language-directed hands: they translate documents, databases, and live state into text or structured results; the model expresses language intent for tools to take controlled actions on services, files, and calendars.](/images/posts/how-to-use-llms/senses-and-hands-en.png)
+![Tools give an LLM requestable observations and language-directed hands: they translate documents, databases, and live state into text or structured results; the model uses language intent to request that the system obtain information or take controlled actions on services, files, and calendars.](/images/posts/how-to-use-llms/senses-and-hands-en.png)
 
 The interactive course's [“How Do LLMs Call Tools?”](https://llm.hclife.edu.pl/model-boundaries?lang=en#tool-call-protocol) demonstration traces the full path: the model proposes call intent, the client validates permissions and parameters, then results return to context.
 
@@ -133,4 +133,4 @@ With this design, a model can spend its effort on what it does well: reading com
 
 If each turn requires a person to copy in documents, recall history, look up a status, and add it to a prompt, efficiency quickly becomes the bottleneck. Since a model can infer from its context what is still missing, can it actively request the information and tools it needs?
 
-It can—but that does not mean letting it “do everything” without limits. The next article will examine how to make this initiative an observable loop: how a model identifies an information gap, chooses a next step, calls controlled capabilities, revises its judgement from the result, and how the system defines stopping conditions, permissions, and points for human intervention.
+It can—but that does not mean letting it “do everything” without limits. The next article, [*How LLM Initiative Works: From Language Intent to Controlled Execution*](/en/posts/how-llms-become-proactive/), examines how to make this initiative an observable loop: how a model identifies an information gap, chooses a next step, calls controlled capabilities, revises its judgement from the result, and how the system defines stopping conditions, permissions, and points for human intervention.

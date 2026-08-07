@@ -33,9 +33,13 @@ const posts = (await getCollection('posts', ({ data }) => data.lang === lang && 
       <span class="eyebrow">{posts.length.toString().padStart(2, '0')}</span>
     </div>
     <PostList lang={lang} posts={posts.slice(0, 5)} />
+    <a class="archive-link text-link" href={`/${lang}/posts/`}>
+      {text.viewAllWriting} <span aria-hidden="true">&rarr;</span>
+    </a>
   </section>
 </BaseLayout>
 
 <style>
   .signal { color: var(--signal); }
+  .archive-link { display: inline-block; margin-top: 24px; }
 </style>
