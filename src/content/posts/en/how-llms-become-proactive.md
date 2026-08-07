@@ -1,7 +1,7 @@
 ---
 title: "How LLM Initiative Works: From Language Intent to Controlled Execution"
 description: "Initiative comes from the model's mathematical computation: it generates content directly or requests supplemental content; a client recognises the structure, controls execution, and returns results."
-publishedAt: 2026-08-06T12:00:00+08:00
+publishedAt: 2026-08-06T12:30:00+08:00
 lang: en
 tags:
   - LLM
