@@ -11,7 +11,7 @@ tags:
 translationSlug: ai-new-entropy-reduction
 ---
 
-> “IT FEEDS ON ‘NEGATIVE ENTROPY’.”
+> “生命以‘负熵’为食。”
 >
 > —— 埃尔温·薛定谔，《生命是什么？》（1944），第六章
 
