@@ -4,7 +4,6 @@ description: "从蒸汽机到大模型，探寻四次工业革命对抗“熵增
 publishedAt: 2026-08-12
 lang: zh
 tags:
-  - 熵减
   - 科技哲学
   - 控制论
   - AI

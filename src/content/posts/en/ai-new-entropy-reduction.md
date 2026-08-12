@@ -4,7 +4,6 @@ description: "From steam engines to large language models, explore how four indu
 publishedAt: 2026-08-12
 lang: en
 tags:
-  - Entropy Reduction
   - Philosophy of Technology
   - Cybernetics
   - AI
