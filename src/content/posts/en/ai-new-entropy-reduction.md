@@ -1,11 +1,14 @@
 ---
 title: "AI: A New Kind of ‘Entropy Reduction’"
-description: "From steam engines to large language models: can AI become the core engine of the fourth industrial revolution?"
+description: "From steam engines to large language models, explore how four industrial revolutions countered entropy increase—and how AI could become the core engine of next-generation civilisation by autonomously generating rules."
 publishedAt: 2026-08-12
 lang: en
 tags:
+  - Entropy Reduction
+  - Philosophy of Technology
+  - Cybernetics
   - AI
-  - LLM
+  - Agent
   - Industrial Revolution
   - Productivity
 translationSlug: ai-new-entropy-reduction

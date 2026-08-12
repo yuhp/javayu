@@ -1,11 +1,14 @@
 ---
 title: "AI：新的“熵减”"
-description: "从蒸汽机到大模型，AI 能否成为第四次工业革命的核心引擎"
+description: "从蒸汽机到大模型，探寻四次工业革命对抗“熵增”的底层逻辑：AI 将如何通过自主生成规则，成为次世代文明的核心引擎？"
 publishedAt: 2026-08-12
 lang: zh
 tags:
+  - 熵减
+  - 科技哲学
+  - 控制论
   - AI
-  - LLM
+  - Agent
   - 产业革命
   - 生产力
 translationSlug: ai-new-entropy-reduction
