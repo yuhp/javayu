@@ -12,6 +12,7 @@ tags:
   - Productivity
 cover:
   src: /images/posts/ai-new-entropy-reduction/cover.png
+  thumbnail: /images/posts/ai-new-entropy-reduction/cover-thumb.jpg
   alt: A robotic hand and a human hand reaching toward one another against a mural-like sky, not yet touching.
 translationSlug: ai-new-entropy-reduction
 ---

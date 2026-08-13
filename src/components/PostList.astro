@@ -32,7 +32,7 @@ const text = copy[lang];
             </div>
             {showFeatureCover && index === 0 && post.data.cover && (
               <a class="post-list__cover" href={`/${lang}/posts/${slug}/`} aria-label={post.data.title}>
-                <img src={post.data.cover.src} alt="" />
+                <img src={post.data.cover.thumbnail ?? post.data.cover.src} alt="" width="168" height="95" />
               </a>
             )}
           </article>

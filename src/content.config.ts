@@ -13,6 +13,7 @@ const posts = defineCollection({
     cover: z.object({
       src: z.string(),
       alt: z.string(),
+      thumbnail: z.string().optional(),
     }).optional(),
     translationSlug: z.string().optional(),
     draft: z.boolean().default(false),
