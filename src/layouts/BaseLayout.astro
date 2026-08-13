@@ -134,11 +134,14 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
   .section-heading h2 { margin: 0; font-size: 25px; }
   .post-list { margin: 0; padding: 0; list-style: none; }
   .post-list__item { border-bottom: 1px solid var(--rule); padding: 31px 0 35px; }
+  .post-list__item--featured { display: grid; grid-template-columns: minmax(0, 1fr) 168px; align-items: center; gap: 32px; }
   .post-list__meta { display: flex; gap: 13px; margin-bottom: 8px; }
   .post-list__meta span::before { content: '/'; margin-right: 13px; color: var(--rule); }
   .post-list h2 { margin: 0; font-size: clamp(24px, 3vw, 31px); }
   .post-list h2 a { text-decoration: none; }
   .post-list__item > p { max-width: 640px; margin: 7px 0 10px; color: var(--muted); }
+  .post-list__cover { display: block; border: 1px solid var(--rule); line-height: 0; }
+  .post-list__cover img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
   .text-link { color: var(--link); font-size: 14px; font-weight: 600; }
   .empty-state { color: var(--muted); }
   .archive-header { max-width: 760px; padding-top: 76px; }
@@ -149,6 +152,7 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
   .article-description { max-width: 760px; margin: 0 0 23px; color: var(--muted); font-size: 19px; }
   .article-meta { display: flex; flex-wrap: wrap; gap: 12px 18px; }
   .article-tags { margin-top: 14px; color: var(--signal); }
+  .article-cover { display: block; width: 100%; max-width: 820px; height: auto; border: 1px solid var(--rule); margin-top: 30px; }
   .prose { max-width: 820px; font-size: 18px; line-height: 1.9; }
   .prose h2 { margin-top: 58px; font-size: 31px; }
   .prose h3 { margin-top: 38px; font-size: 24px; }
@@ -177,6 +181,8 @@ const languageUrl = alternatePaths[alternate] ?? `/${alternate}/posts/`;
     .site-footer { display: block; margin-top: 64px; }
     .site-footer p + p { margin-top: 8px; }
     .prose { font-size: 17px; }
+    .post-list__item--featured { grid-template-columns: 1fr; gap: 20px; }
+    .post-list__cover { max-width: 300px; }
   }
   @media (prefers-reduced-motion: no-preference) { a { transition: color 160ms ease-out; } }
 </style>

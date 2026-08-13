@@ -10,6 +10,9 @@ tags:
   - Agent
   - Industrial Revolution
   - Productivity
+cover:
+  src: /images/posts/ai-new-entropy-reduction/cover.png
+  alt: A robotic hand and a human hand reaching toward one another against a mural-like sky, not yet touching.
 translationSlug: ai-new-entropy-reduction
 ---
 

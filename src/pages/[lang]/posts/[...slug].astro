@@ -47,6 +47,9 @@ const alternatePaths = translatedSlug
         {post.data.updatedAt && <time datetime={post.data.updatedAt.toISOString()}>{text.updatedIn} {dateForLocale(post.data.updatedAt, lang)}</time>}
       </div>
       {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(' / ')}</p>}
+      {post.data.cover && (
+        <img class="article-cover" src={post.data.cover.src} alt={post.data.cover.alt} />
+      )}
       {translatedSlug && (
         <p class="translation-links">
           <span>{text.translations}:</span>

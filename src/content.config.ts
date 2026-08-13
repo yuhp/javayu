@@ -10,6 +10,10 @@ const posts = defineCollection({
     updatedAt: z.coerce.date().optional(),
     lang: z.enum(['zh', 'en']),
     tags: z.array(z.string()).default([]),
+    cover: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }).optional(),
     translationSlug: z.string().optional(),
     draft: z.boolean().default(false),
   }),

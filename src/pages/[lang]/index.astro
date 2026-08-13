@@ -32,7 +32,7 @@ const posts = (await getCollection('posts', ({ data }) => data.lang === lang && 
       <h2 id="latest-writing">{text.latest}</h2>
       <span class="eyebrow">{posts.length.toString().padStart(2, '0')}</span>
     </div>
-    <PostList lang={lang} posts={posts.slice(0, 5)} />
+    <PostList lang={lang} posts={posts.slice(0, 5)} showFeatureCover />
     <a class="archive-link text-link" href={`/${lang}/posts/`}>
       {text.viewAllWriting} <span aria-hidden="true">&rarr;</span>
     </a>

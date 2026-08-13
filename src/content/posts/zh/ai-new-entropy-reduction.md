@@ -10,6 +10,9 @@ tags:
   - Agent
   - 产业革命
   - 生产力
+cover:
+  src: /images/posts/ai-new-entropy-reduction/cover.png
+  alt: 机械手与人的手指在壁画质感的天空前相向伸出，尚未触碰。
 translationSlug: ai-new-entropy-reduction
 ---
 
