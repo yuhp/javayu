@@ -1,5 +1,5 @@
 ---
-title: "opencode-models-discovery 1.4.0: Enhancing Model Metadata Injection and Performance"
+title: "opencode-models-discovery 1.4.0: Better Model Metadata Injection, Caching, and Performance"
 description: "From 1.0.0 to 1.4.0, opencode-models-discovery added multiple provider metadata enrichment modes. Alongside caching, timeout controls, and explicit configuration merging, these changes make dynamic model discovery in OpenCode more complete and reliable."
 publishedAt: 2026-08-14
 lang: en
@@ -69,9 +69,9 @@ The following table lists the gateways, runtimes, and metadata providers that ca
 | Configuration value | Gateway / data source | Metadata source | Key information enriched |
 | --- | --- | --- | --- |
 | `bifrost` | Bifrost AI Gateway | Inline | Context and input/output limits, modalities, input/output pricing; normalized names when `smartModelName` is enabled |
-| `litellm` | LiteLLM Proxy or a compatible model-information service | External | Token limits, reasoning support, and reasoning-effort variants; non-chat models are skipped by default |
-| `lmstudio` | LM Studio 0.4.0+ | External | Display names, context, vision, tool use, reasoning, and reasoning variants |
-| `omniroute` | OmniRoute | Inline | Context and token limits, modalities, attachments, reasoning, tool calling, structured output, and temperature support |
+| `litellm` | LiteLLM Gateway / Proxy or a compatible model-information service | External | Token limits, reasoning support, and reasoning-effort variants; non-chat models are skipped by default |
+| `lmstudio` | LM Studio Engine (requires v0.4.0+) | External | Display names, context, vision, tool use, reasoning, and reasoning variants |
+| `omniroute` | OmniRoute AI Gateway | Inline | Context and token limits, modalities, attachments, reasoning, tool calling, structured output, and temperature support |
 | `vllm` | vLLM or a compatible service that exposes vLLM fields | Inline | Context and output limits; it does not infer modalities, tool use, or reasoning capabilities |
 | `models.dev` | The public models.dev metadata index, for models that can be matched safely | External | Token limits, attachments, reasoning, tool calling, structured output, temperature, modalities, and more |
 

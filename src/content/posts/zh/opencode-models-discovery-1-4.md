@@ -68,10 +68,10 @@ translationSlug: opencode-models-discovery-1-4
 
 | 配置值 | 适用 gateway / 数据源 | 元数据来源 | 可补齐的主要信息 |
 | --- | --- | --- | --- |
-| `bifrost` | Bifrost AI Gateway | 内联 | 上下文、输入/输出上限、模态、输入/输出价格；启用 `smartModelName` 时使用规范化名称 |
-| `litellm` | LiteLLM Proxy 或兼容的模型信息服务 | 外部 | token 限制、推理支持与推理强度变体；默认跳过非 chat 模型 |
-| `lmstudio` | LM Studio 0.4.0+ | 外部 | 显示名称、上下文、视觉、工具调用、推理与推理变体 |
-| `omniroute` | OmniRoute | 内联 | 上下文与 token 限制、模态、附件、推理、工具调用、结构化输出、温度支持 |
+| `bifrost` | Bifrost AI 网关 | 内联 | 上下文、输入/输出上限、模态、输入/输出价格；启用 `smartModelName` 时使用规范化名称 |
+| `litellm` | LiteLLM 网关/代理 或兼容的模型信息服务 | 外部 | token 限制、推理支持与推理强度变体；默认跳过非 chat 模型 |
+| `lmstudio` | LM Studio 引擎 (版本要求：0.4.0+)  | 外部 | 显示名称、上下文、视觉、工具调用、推理与推理变体 |
+| `omniroute` | OmniRoute AI 网关 | 内联 | 上下文与 token 限制、模态、附件、推理、工具调用、结构化输出、温度支持 |
 | `vllm` | vLLM 或返回 vLLM 字段的兼容服务 | 内联 | 上下文与输出限制；不推断模态、工具或推理能力 |
 | `models.dev` | 公共 models.dev 元数据索引，适合能安全匹配的通用模型 | 外部 | token 限制、附件、推理、工具调用、结构化输出、温度和模态等 |
 
