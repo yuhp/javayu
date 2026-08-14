@@ -8,7 +8,6 @@ tags:
   - LLM
   - 本地模型
   - 开源
-draft: true
 translationSlug: opencode-models-discovery-1-4
 ---
 

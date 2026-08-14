@@ -8,7 +8,6 @@ tags:
   - LLM
   - Local models
   - Open source
-draft: true
 translationSlug: opencode-models-discovery-1-4
 ---
 
