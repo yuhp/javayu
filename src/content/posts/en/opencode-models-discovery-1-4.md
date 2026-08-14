@@ -1,5 +1,5 @@
 ---
-title: "opencode-models-discovery 1.4.0: Continuing to Improve Model Metadata Injection"
+title: "opencode-models-discovery 1.4.0: Enhancing Model Metadata Injection and Performance"
 description: "From 1.0.0 to 1.4.0, opencode-models-discovery added multiple provider metadata enrichment modes. Alongside caching, timeout controls, and explicit configuration merging, these changes make dynamic model discovery in OpenCode more complete and reliable."
 publishedAt: 2026-08-14
 lang: en
@@ -8,6 +8,10 @@ tags:
   - LLM
   - Local models
   - Open source
+cover:
+  src: /images/posts/opencode-models-discovery-1-4/cover.png
+  thumbnail: /images/posts/opencode-models-discovery-1-4/cover-thumb.png
+  alt: Model lists from multiple providers flow into opencode-models-discovery, then become a unified enriched model list through metadata translation and injection.
 translationSlug: opencode-models-discovery-1-4
 ---
 
