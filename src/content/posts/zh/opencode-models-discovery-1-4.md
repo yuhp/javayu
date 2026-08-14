@@ -1,6 +1,6 @@
 ---
 title: "opencode-models-discovery 1.4.0：继续增强模型的元数据注入"
-description: "从 vLLM、持久缓存到 LM Studio、Bifrost 与 OmniRoute 元数据增强，opencode-models-discovery 1.4.0 让 OpenCode 的动态模型发现更快、更完整，也更容易定制。"
+description: "从 1.0.0 到 1.4.0，opencode-models-discovery 新增多种 provider 元数据增强，并通过缓存、超时控制和显式配置合并，让 OpenCode 的动态模型发现更完整、更稳定。"
 publishedAt: 2026-08-14
 lang: zh
 tags:

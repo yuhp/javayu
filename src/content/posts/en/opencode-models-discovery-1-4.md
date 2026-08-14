@@ -1,6 +1,6 @@
 ---
 title: "opencode-models-discovery 1.4.0: Continuing to Improve Model Metadata Injection"
-description: "From vLLM and persisted caching to metadata enrichment for LM Studio, Bifrost, and OmniRoute, opencode-models-discovery 1.4.0 makes dynamic model discovery in OpenCode faster, more complete, and easier to customize."
+description: "From 1.0.0 to 1.4.0, opencode-models-discovery added multiple provider metadata enrichment modes. Alongside caching, timeout controls, and explicit configuration merging, these changes make dynamic model discovery in OpenCode more complete and reliable."
 publishedAt: 2026-08-14
 lang: en
 tags:

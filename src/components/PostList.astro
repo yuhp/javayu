@@ -5,20 +5,20 @@ import { copy, dateForLocale, type Language } from '../lib/site';
 interface Props {
   lang: Language;
   posts: CollectionEntry<'posts'>[];
-  showFeatureCover?: boolean;
+  showCovers?: boolean;
 }
 
-const { lang, posts, showFeatureCover = false } = Astro.props;
+const { lang, posts, showCovers = false } = Astro.props;
 const text = copy[lang];
 ---
 
 {posts.length ? (
   <ol class="post-list">
-    {posts.map((post, index) => {
+    {posts.map((post) => {
       const slug = post.id.split('/').at(-1);
       return (
         <li>
-          <article class:list={['post-list__item', { 'post-list__item--featured': showFeatureCover && index === 0 && post.data.cover }]}>
+          <article class:list={['post-list__item', { 'post-list__item--with-cover': showCovers && post.data.cover }]}>
             <div class="post-list__content">
               <div class="post-list__meta">
                 <time datetime={post.data.publishedAt.toISOString()}>
@@ -30,7 +30,7 @@ const text = copy[lang];
               <p>{post.data.description}</p>
               <a class="text-link" href={`/${lang}/posts/${slug}/`}>{text.readArticle} <span aria-hidden="true">&rarr;</span></a>
             </div>
-            {showFeatureCover && index === 0 && post.data.cover && (
+            {showCovers && post.data.cover && (
               <a class="post-list__cover" href={`/${lang}/posts/${slug}/`} aria-label={post.data.title}>
                 <img src={post.data.cover.thumbnail ?? post.data.cover.src} alt="" width="168" height="95" />
               </a>
