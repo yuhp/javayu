@@ -1,7 +1,7 @@
 ---
 title: "Who Owns Plugin Credentials in OpenCode? From Auth-File Sniffing to the Integration API"
 description: "The first critical boundary shift from OpenCode plugins V1 to V2: who owns the credentials? This article dives into the transition from sniffing XDG auth.json credential files and environment variables in V1 to leveraging the declarative Integration Connection API, isolated secret lifecycles, and strict override guards in V2."
-publishedAt: 2026-10-15
+publishedAt: 2026-10-15T10:00:00+08:00
 lang: en
 tags:
   - OpenCode

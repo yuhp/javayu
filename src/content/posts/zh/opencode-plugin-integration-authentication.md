@@ -1,7 +1,7 @@
 ---
 title: "OpenCode 插件凭证归谁管？从凭证文件嗅探到宿主 Integration API"
 description: "OpenCode 插件 V1 到 V2 的第一道关键边界重构：凭证归谁管理？本文深入剖析从 V1 嗅探 XDG auth.json 凭证文件与环境变量回退，到 V2 基于 Integration Connection API、密钥生命周期隔离与严防 Overrides 凭证后门的安全架构实践。"
-publishedAt: 2026-10-15
+publishedAt: 2026-10-15T10:00:00+08:00
 lang: zh
 tags:
   - OpenCode
