@@ -1,7 +1,7 @@
 ---
 title: "从 Config Hook 到 Server/TUI：OpenCode 插件 V1 到 V2 的架构演进"
 description: "OpenCode V1 到 V2 绝不仅是 API 换名，而是插件与宿主之间责任边界的彻底重构。本文以实际模型发现插件的演进为切入点，系统拆解从 Config Hook、文件认证与 XDG 缓存，到 Provider Transforms、Host Storage、Integration API 与 Server/TUI RPC 的完整架构跃迁。"
-publishedAt: 2026-10-09
+publishedAt: 2026-10-14
 lang: zh
 tags:
   - OpenCode

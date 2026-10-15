@@ -1,7 +1,7 @@
 ---
 title: "From Config Hooks to Server/TUI: The Architecture Evolution of OpenCode Plugins from V1 to V2"
 description: "Moving from OpenCode V1 to V2 is far more than swapping API names—it is a fundamental redistribution of responsibilities between host and plugin. Drawing from real-world model discovery plugin experience, this article breaks down the shift from config hooks, filesystem auth, and XDG caching to Provider Transforms, Host Storage, the Integration API, and Server/TUI RPC."
-publishedAt: 2026-10-09
+publishedAt: 2026-10-14
 lang: en
 tags:
   - OpenCode
