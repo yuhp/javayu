@@ -176,7 +176,7 @@ Declare the plugin and target provider in your workspace or global `opencode.jso
   "providers": {
     "gateway": {
       "name": "Gateway",
-      "package": "@opencode-ai/ai/providers/openai-compatible",
+      "package": "@opencode/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "https://gateway.example.com/v1",
         "modelsDiscovery": {
